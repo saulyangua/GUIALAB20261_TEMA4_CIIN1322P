@@ -1,0 +1,42 @@
+@startuml HU-02_login
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam activity {
+  BackgroundColor #F2F4F8
+  BorderColor #1F4E79
+  FontColor #1F4E79
+  DiamondBackgroundColor #D9E1F2
+  DiamondBorderColor #1F4E79
+  DiamondFontColor #1F4E79
+  ArrowColor #1F4E79
+}
+
+title Diagrama de Actividad - HU-02: Inicio de Sesión de Usuarios Registrados (UniDelivery)
+
+start
+:Estudiante accede a la pantalla de inicio de sesión;
+:Ingresar correo institucional y contraseña;
+:Presionar botón "Iniciar Sesión";
+
+if (¿Credenciales válidas?) then (Sí)
+  #E2EFDA:Autenticar al estudiante en la plataforma;
+  #E2EFDA:Reiniciar contador de intentos fallidos a 0;
+  #E2EFDA:Redirigir a pantalla principal con el menú del día;
+  #E2EFDA:Mostrar saludo "¡Hola, [Nombre]!";
+  stop
+else (No)
+  :Incrementar contador de intentos fallidos (+1);
+  if (¿Intentos fallidos consecutivos >= 5?) then (Sí)
+    #FCE4D6:Bloquear temporalmente la cuenta por 15 minutos;
+    #FCE4D6:Mostrar mensaje:\n"Su cuenta ha sido bloqueada tras 5 intentos fallidos. Intente nuevamente en 15 minutos o restablezca su contraseña";
+    stop
+  else (No)
+    #FCE4D6:Denegar acceso al sistema;
+    #FCE4D6:Mostrar mensaje de error:\n"Credenciales incorrectas. Verifique su correo o contraseña";
+    stop
+  endif
+endif
+
+@enduml

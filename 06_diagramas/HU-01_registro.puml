@@ -1,0 +1,38 @@
+@startuml HU-01_registro
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam activity {
+  BackgroundColor #F2F4F8
+  BorderColor #1F4E79
+  FontColor #1F4E79
+  DiamondBackgroundColor #D9E1F2
+  DiamondBorderColor #1F4E79
+  DiamondFontColor #1F4E79
+  ArrowColor #1F4E79
+}
+
+title Diagrama de Actividad - HU-01: Registro de Estudiante con Correo Institucional (UniDelivery)
+
+start
+:Estudiante accede a la pantalla de registro;
+:Ingresar nombre completo, código universitario, correo y contraseña;
+:Presionar botón "Registrarse";
+
+if (¿El correo tiene dominio institucional @upn.pe?) then (No)
+  #FCE4D6:Mostrar mensaje de error:\n"Solo se admiten correos institucionales con dominio @upn.pe";
+  stop
+else (Sí)
+  if (¿El correo ya se encuentra registrado?) then (Sí)
+    #FCE4D6:Mostrar mensaje de advertencia:\n"El correo institucional ya se encuentra registrado. Inicia sesión o recupera tu contraseña";
+    stop
+  else (No)
+    #E2EFDA:Crear cuenta de usuario en base de datos;
+    #E2EFDA:Enviar enlace de activación al correo institucional;
+    #E2EFDA:Mostrar mensaje:\n"Registro exitoso. Por favor revisa tu bandeja institucional para activar tu cuenta";
+    stop
+  endif
+endif
+
+@enduml

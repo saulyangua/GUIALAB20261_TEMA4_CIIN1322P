@@ -1,0 +1,37 @@
+@startuml HU-09_cocina
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam activity {
+  BackgroundColor #F2F4F8
+  BorderColor #1F4E79
+  FontColor #1F4E79
+  DiamondBackgroundColor #D9E1F2
+  DiamondBorderColor #1F4E79
+  DiamondFontColor #1F4E79
+  ArrowColor #1F4E79
+}
+
+title Diagrama de Actividad - HU-09: Gestión de Pedidos en Cocina (UniDelivery)
+
+start
+:Cocinero accede al panel de cocina (KDS - Kitchen Display System);
+:El sistema consulta la cola de pedidos pendientes pagados;
+
+if (¿Existen pedidos pendientes en cola?) then (No)
+  #E2EFDA:Mostrar panel de órdenes vacío;
+  #E2EFDA:Mostrar mensaje informativo:\n"¡Excelente trabajo! No hay pedidos pendientes en cola";
+  stop
+else (Sí)
+  :Ordenar comandas por antigüedad (FIFO: del más antiguo al más reciente);
+  :Mostrar tarjetas de pedidos con platos solicitados, notas y N.° de pedido;
+  :Cocinero finaliza la elaboración de los platos de la orden;
+  :Presionar botón "Marcar como Listo";
+  #E2EFDA:Actualizar estado del pedido a "Listo para Recoger";
+  #E2EFDA:Disparar evento de notificación push en tiempo real al estudiante;
+  #E2EFDA:Trasladar la comanda de la vista de preparación hacia la sección de despacho;
+  stop
+endif
+
+@enduml

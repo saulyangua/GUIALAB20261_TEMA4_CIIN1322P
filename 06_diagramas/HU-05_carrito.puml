@@ -1,0 +1,43 @@
+@startuml HU-05_carrito
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam activity {
+  BackgroundColor #F2F4F8
+  BorderColor #1F4E79
+  FontColor #1F4E79
+  DiamondBackgroundColor #D9E1F2
+  DiamondBorderColor #1F4E79
+  DiamondFontColor #1F4E79
+  ArrowColor #1F4E79
+}
+
+title Diagrama de Actividad - HU-05: Gestión de Platos en el Carrito de Compras (UniDelivery)
+
+start
+:Estudiante interactúa con la oferta de comida o con su carrito;
+
+if (¿Acción del estudiante?) then (Agregar plato)
+  :Seleccionar plato y cantidad deseada;
+  if (¿Plato cuenta con stock disponible (>0)?) then (Sí)
+    #E2EFDA:Agregar ítems al carrito de compras;
+    #E2EFDA:Actualizar subtotal y total acumulado;
+    #E2EFDA:Mostrar notificación:\n"Platos agregados al carrito correctamente";
+    stop
+  else (No - Stock en 0)
+    #FCE4D6:Mantener botón "Agregar al Carrito" deshabilitado;
+    #FCE4D6:Mostrar etiqueta visual "Plato Agotado";
+    #FCE4D6:Impedir selección de cantidad y adición al carrito;
+    stop
+  endif
+else (Quitar plato)
+  :Acceder a la vista del carrito de compras;
+  :Presionar ícono "Eliminar" en el plato deseado;
+  #E2EFDA:Retirar ítem seleccionado del carrito;
+  #E2EFDA:Recalcular total a pagar de la orden;
+  #E2EFDA:Mostrar mensaje:\n"Producto eliminado del carrito";
+  stop
+endif
+
+@enduml

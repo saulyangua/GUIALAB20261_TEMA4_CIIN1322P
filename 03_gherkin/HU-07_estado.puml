@@ -1,0 +1,41 @@
+@startuml HU-07_estado
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam activity {
+  BackgroundColor #F2F4F8
+  BorderColor #1F4E79
+  FontColor #1F4E79
+  DiamondBackgroundColor #D9E1F2
+  DiamondBorderColor #1F4E79
+  DiamondFontColor #1F4E79
+  ArrowColor #1F4E79
+}
+
+title Diagrama de Actividad - HU-07: Consulta y Seguimiento de Estado del Pedido (UniDelivery)
+
+start
+:Estudiante accede a la pestaña "Mis Pedidos";
+:Consultar pedidos en el sistema asociados a la cuenta;
+
+if (¿Existen pedidos activos?) then (No)
+  #F2F4F8:Ocultar panel de seguimiento activo;
+  #F2F4F8:Mostrar mensaje amigable:\n"No tienes pedidos activos en este momento";
+  :Mostrar botón de acceso directo "Ver Menú del Día";
+  stop
+else (Sí)
+  :Cargar estado del pedido activo;
+  if (¿Estado actual de la orden?) then ("En Preparación")
+    #E2EFDA:Mostrar indicador visual "En Preparación";
+    #E2EFDA:Mostrar estimación de tiempo restante (ej. "8 minutos");
+    #E2EFDA:Detallar lista de productos que componen la orden;
+    stop
+  else ("Listo para Recoger")
+    #E2EFDA:Actualizar pantalla del estudiante en tiempo real a "Listo para Recoger";
+    #E2EFDA:Emitir notificación sonora y visual:\n"¡Tu pedido está listo! Acércate al módulo con tu código";
+    stop
+  endif
+endif
+
+@enduml

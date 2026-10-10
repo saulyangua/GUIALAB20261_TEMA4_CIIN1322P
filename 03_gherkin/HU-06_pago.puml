@@ -1,0 +1,51 @@
+@startuml HU-06_pago
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam activity {
+  BackgroundColor #F2F4F8
+  BorderColor #1F4E79
+  FontColor #1F4E79
+  DiamondBackgroundColor #D9E1F2
+  DiamondBorderColor #1F4E79
+  DiamondFontColor #1F4E79
+  ArrowColor #1F4E79
+}
+
+title Diagrama de Actividad - HU-06: Pagar con Tarjeta (UniDelivery)
+
+start
+
+:Revisar carrito de compras;
+
+:Ingresar dirección o punto de recojo;
+
+repeat
+  :Elegir método (Tarjeta);
+
+  :Presionar "Pagar";
+
+  :Enviar cobro a pasarela de pagos;
+
+  if (¿Pasarela disponible?) then (No / Timeout)
+    #FCE4D6:Mostrar error:\n"Servicio de pagos no disponible. Intente en unos minutos";
+  else (Sí)
+    if (¿Pago aprobado?) then (Sí)
+      #E2EFDA:Generar N.° de pedido (ej. PED-2026-0045);
+      #E2EFDA:Notificar automáticamente a cola de cocina;
+      #E2EFDA:Mostrar pantalla:\n"¡Pago exitoso! Tu pedido ha sido confirmado";
+      stop
+    else (No - Fondos insuficientes / datos erróneos)
+      #FCE4D6:Mostrar mensaje de error:\n"Pago rechazado por el banco emisor";
+    endif
+  endif
+
+repeat while (¿Desea reintentar?) is (Sí)
+->No;
+
+:Mostrar "Pago cancelado";
+
+stop
+
+@enduml
