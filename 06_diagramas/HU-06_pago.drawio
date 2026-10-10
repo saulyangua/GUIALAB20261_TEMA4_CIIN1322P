@@ -1,0 +1,186 @@
+<mxfile host="app.diagrams.net" modified="2026-10-10T05:40:00.000Z" agent="UniDelivery Agent" version="24.7.17">
+  <diagram id="diagram_hu06_pago" name="HU-06_pago">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Título -->
+        <mxCell id="title" value="Diagrama de Actividad - HU-06: Pagar con Tarjeta (UniDelivery)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontFamily=Arial;fontColor=#1F4E79;" vertex="1" parent="1">
+          <mxGeometry x="190" y="20" width="460" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Inicio -->
+        <mxCell id="node_start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#1F4E79;strokeColor=#1F4E79;" vertex="1" parent="1">
+          <mxGeometry x="400" y="70" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Revisar carrito -->
+        <mxCell id="node_rev" value="Revisar carrito" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F8;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="325" y="130" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Ingresar dirección o punto de recojo -->
+        <mxCell id="node_dir" value="Ingresar dirección o punto de recojo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F8;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="305" y="200" width="220" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Elegir método (Tarjeta) -->
+        <mxCell id="node_met" value="Elegir método (Tarjeta)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F8;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="325" y="270" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Presionar "Pagar" -->
+        <mxCell id="node_pag" value="Presionar &quot;Pagar&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F8;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="335" y="340" width="160" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Enviar cobro a pasarela -->
+        <mxCell id="node_pas" value="Enviar cobro a pasarela" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F8;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="325" y="410" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Decisión: ¿Pago aprobado? -->
+        <mxCell id="node_dec" value="¿Pago aprobado?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#D9E1F2;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;" vertex="1" parent="1">
+          <mxGeometry x="340" y="480" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Rama Sí: Generar N.° de pedido -->
+        <mxCell id="node_gen" value="Generar N.° de pedido" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F8;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="170" y="580" width="170" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Notificar a cocina -->
+        <mxCell id="node_not" value="Notificar a cocina" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F8;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="170" y="650" width="170" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Mostrar "Pedido confirmado" -->
+        <mxCell id="node_cnf" value="Mostrar &quot;Pedido confirmado&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2EFDA;strokeColor=#385723;fontFamily=Arial;fontSize=12;fontColor=#385723;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="160" y="720" width="190" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Fin Éxito -->
+        <mxCell id="node_end_ok" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#385723;strokeColor=#385723;" vertex="1" parent="1">
+          <mxGeometry x="240" y="790" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="node_end_ok_ring" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeColor=#385723;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="235" y="785" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Rama No: Mostrar "Pago rechazado" -->
+        <mxCell id="node_rec" value="Mostrar &quot;Pago rechazado&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#C65911;fontFamily=Arial;fontSize=12;fontColor=#C65911;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="490" y="580" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Decisión: ¿Desea reintentar? -->
+        <mxCell id="node_rei" value="¿Desea reintentar?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#D9E1F2;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;" vertex="1" parent="1">
+          <mxGeometry x="505" y="650" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Mostrar "Pago cancelado" -->
+        <mxCell id="node_cancel" value="Mostrar &quot;Pago cancelado&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F8;strokeColor=#1F4E79;fontFamily=Arial;fontSize=12;fontColor=#1F4E79;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="495" y="760" width="170" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Fin Cancelado -->
+        <mxCell id="node_end_no" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#C65911;strokeColor=#C65911;" vertex="1" parent="1">
+          <mxGeometry x="565" y="830" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="node_end_no_ring" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeColor=#C65911;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="825" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Conexiones / Flechas -->
+        <!-- Inicio -> Revisar carrito -->
+        <mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_start" target="node_rev">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Revisar carrito -> Ingresar dirección -->
+        <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_rev" target="node_dir">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Ingresar dirección -> Elegir método -->
+        <mxCell id="edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_dir" target="node_met">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Elegir método -> Presionar Pagar -->
+        <mxCell id="edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_met" target="node_pag">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Presionar Pagar -> Enviar cobro -->
+        <mxCell id="edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_pag" target="node_pas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Enviar cobro -> ¿Pago aprobado? -->
+        <mxCell id="edge6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_pas" target="node_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Decisión -> Sí -> Generar pedido -->
+        <mxCell id="edge7" value="Sí" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontColor=#1F4E79;align=right;" edge="1" parent="1" source="node_dec" target="node_gen">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="255" y="515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Generar pedido -> Notificar cocina -->
+        <mxCell id="edge8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_gen" target="node_not">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Notificar cocina -> Confirmado -->
+        <mxCell id="edge9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_not" target="node_cnf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Confirmado -> Fin éxito -->
+        <mxCell id="edge10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#385723;strokeWidth=1.5;" edge="1" parent="1" source="node_cnf" target="node_end_ok_ring">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Decisión -> No -> Mostrar Pago rechazado -->
+        <mxCell id="edge11" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontColor=#1F4E79;align=left;" edge="1" parent="1" source="node_dec" target="node_rec">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Mostrar Pago rechazado -> ¿Desea reintentar? -->
+        <mxCell id="edge12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;" edge="1" parent="1" source="node_rec" target="node_rei">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ¿Desea reintentar? -> Sí -> Bucle a Elegir método -->
+        <mxCell id="edge13" value="Sí" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontColor=#1F4E79;" edge="1" parent="1" source="node_rei" target="node_met">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="685" />
+              <mxPoint x="720" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ¿Desea reintentar? -> No -> Mostrar Pago cancelado -->
+        <mxCell id="edge14" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F4E79;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontColor=#1F4E79;align=right;" edge="1" parent="1" source="node_rei" target="node_cancel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pago cancelado -> Fin cancelado -->
+        <mxCell id="edge15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C65911;strokeWidth=1.5;" edge="1" parent="1" source="node_cancel" target="node_end_no_ring">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

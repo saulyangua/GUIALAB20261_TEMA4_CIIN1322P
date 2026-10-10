@@ -1,0 +1,47 @@
+@startuml HU-06_pago
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam activity {
+  BackgroundColor #F2F4F8
+  BorderColor #1F4E79
+  FontColor #1F4E79
+  DiamondBackgroundColor #D9E1F2
+  DiamondBorderColor #1F4E79
+  DiamondFontColor #1F4E79
+  ArrowColor #1F4E79
+}
+
+title Diagrama de Actividad - HU-06: Pagar con Tarjeta (UniDelivery)
+
+start
+
+:Revisar carrito;
+
+:Ingresar dirección o punto de recojo;
+
+repeat
+  :Elegir método (Tarjeta);
+
+  :Presionar "Pagar";
+
+  :Enviar cobro a pasarela;
+
+  if (¿Pago aprobado?) then (Sí)
+    :Generar N.° de pedido;
+    :Notificar a cocina;
+    :Mostrar "Pedido confirmado";
+    stop
+  else (No)
+    :Mostrar "Pago rechazado";
+  endif
+
+repeat while (¿Desea reintentar?) is (Sí)
+->No;
+
+:Mostrar "Pago cancelado";
+
+stop
+
+@enduml
