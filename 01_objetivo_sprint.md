@@ -4,6 +4,11 @@
 - **Proyecto:** UniDelivery — Aplicación de pedidos y delivery de comida universitaria
 - **Curso:** Modelado y Desarrollo de Aplicaciones (CIIN1322P)
 - **Institución:** Universidad Privada del Norte (UPN)
+- **Integrantes:**
+  - Jordy Saúl Yangua De La Cruz (`saulyangua`)
+  - Victor Manuel Maqui Hernandez
+  - Ruben Steve Mendez Vasquez
+  - Ghino Alvieri Valdiviezo Ruiz
 - **Sprint:** Sprint 1
 - **Duración:** 2 semanas (10 días hábiles)
 
